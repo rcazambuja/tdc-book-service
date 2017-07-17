@@ -1,11 +1,17 @@
 package br.com.rcazambuja.book.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import br.com.rcazambuja.review.model.Review;
+
 public class Book {
     private String isbn;
     private String title;
     private String author;
     private int year;
     private String publisher;
+    private List<Review> reviews = new ArrayList<>();
     
     public Book() {
         super();
@@ -38,5 +44,13 @@ public class Book {
     
     public String getPublisher() {
         return publisher;
+    }       
+    
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void addReviews(List<Review> reviews) {
+        this.reviews.addAll(reviews);
     }
 }
