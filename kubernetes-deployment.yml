@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: book-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: book-service
+    spec:
+      containers:
+      - name: book-service
+        image: rcazambuja/book-service:0.0.1
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /management/health
+            port: 8081
+          initialDelaySeconds: 60
+          timeoutSeconds: 30
+        readinessProbe:
+          httpGet:
+            path: /management/info
+            port: 8081
+          timeoutSeconds: 30
+        ports:
+        - containerPort: 8081

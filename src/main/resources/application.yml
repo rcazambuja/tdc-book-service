@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: book-service
+  cloud:
+    stream:
+      bindings:
+        applicationMetrics:
+          destination: metrics
+      metrics:
+        properties: spring.application.name
+      kafka:
+        binder:
+          autoAddPartitions: true
+          brokers: localhost:9092
+          zkNodes: localhost:2181
+  
+server:
+  port: 8081
+  
+management:
+  contextPath: /management
+  security:
+    enabled: false
+
+    
