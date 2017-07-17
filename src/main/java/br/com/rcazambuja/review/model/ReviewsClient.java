@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(value="review-service")
+@FeignClient(value="review-service", fallback=ReviewsClientFallback.class)
 public interface ReviewsClient {
     @RequestMapping(value="/api/v1/reviews", method = RequestMethod.GET)
     public List<Review> list(@RequestParam(name="isbn", required=true) String isbn);       
