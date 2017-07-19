@@ -23,6 +23,9 @@ spring:
     deserialization:
       fail_on_unknown_properties: false
       read_date_timestamps_as_nanoseconds: false
+  metrics:
+    servo:
+      enabled: false
 
 feign: 
   hystrix:
