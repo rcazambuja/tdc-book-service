@@ -9,4 +9,4 @@ spring:
 
 review-service:
   ribbon:
-    listOfServers: review-service.default.alcatraz.local:8082
+    listOfServers: review-service.default.svc.alcatraz.local:8082
